@@ -1,0 +1,57 @@
+"use client";
+import Image from 'next/image'
+import { LucideIcon } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation';
+import React from 'react'
+import { cn } from '@/lib/utils';
+type SideBarItemProps = {
+    icon: LucideIcon,
+    href: string,
+    label: string
+}
+const SidebarItem = ({ icon: Icon /**remaping the icon prop. */, label, href }: SideBarItemProps) => {
+    const pathname = usePathname();
+    const router = useRouter();
+    // check if we're in thje slash route
+    const isActive = (pathname === '/' && href === '/') ||
+        //  check if we're in  a specific route 
+        pathname === href ||
+        //  check if we're in a sub-route within a specific route
+        pathname?.startsWith(`${href}/`);
+
+    const onClick = () => {
+        router.push(href);
+    }
+    return (
+        <button onClick={onClick}
+            type='button'
+            className={cn(
+                'w-full h-[50px] flex flex-row items-center  gap-x-2 text-slate-500 text-sm font-[500] pl-6 transition-all hover:text-slate-600 hover:bg-slate-300/20'
+                ,
+                isActive && ' text-sky-700 bg-sky-200/20 hover:bg-sky-200/20 hover:text-sky-700')}
+        >
+
+           {/* <div className='felx items-center gap-x-2 py-4'> */}
+           <Icon size={22} className={cn(
+                'text-slate-500',
+                isActive && 'text-sky-700'
+            )} />
+
+            <div className='felx items-center gap-x-2 py-4'>
+                {label}
+            </div>
+
+            
+           {/* </div> */}
+
+           <div className={cn(
+                'ml-auto opacity-0 border-2 border-sky-700 h-full transition-all',
+                isActive && 'opacity-100'
+            )} />
+
+            
+        </button>
+    )
+}
+
+export default SidebarItem 
