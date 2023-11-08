@@ -49,7 +49,7 @@ const ChapterIdPage = async ({params: {id: courseId, chapterId}}: { params: { id
     <>
       {!chapter.isPublished && (
         <Banner 
-          lable='This chapter is unpublished. It will not be visible in the course' 
+          label='This chapter is unpublished. It will not be visible in the course' 
           variant="warning" 
         />
       )}
