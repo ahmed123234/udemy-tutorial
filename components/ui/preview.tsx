@@ -8,13 +8,13 @@ interface PreviewProps {
 };
 
 export const Preview = ({
-    value, onChange
+    value
 }: PreviewProps) => {
 
     const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), { ssr: false}), [])
     return(
         <div className="bg-white ">
-            <ReactQuill 
+            <ReactQuill
                 theme='bubble'
                 value={value}
                 readOnly
