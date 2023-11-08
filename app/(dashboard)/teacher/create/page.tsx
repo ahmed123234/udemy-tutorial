@@ -1,7 +1,7 @@
 'use client';
 import * as z from 'zod'
 import axios from 'axios'
-import { zodResolver } from '@hookform/resolvers'
+import  { zodResolver }  from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import {
@@ -26,7 +26,8 @@ const formSchema = z.object({
 const CreateCourse = () => {
   const router = useRouter();
   const form  = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver,
+    resolver: zodResolver(formSchema),
+
     defaultValues: {
       title: ""
     }
