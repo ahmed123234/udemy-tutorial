@@ -16,7 +16,7 @@ interface AttachmentFormProps {
     initialData: Course & { attachemnts: Attachment[]},
     courseId: string
 }
-;
+
 
 
 const AttachmentForm = ({ initialData, courseId }: AttachmentFormProps ) => {

@@ -15,7 +15,7 @@ interface ChapterVideoFormProps {
     initialData: Chapter & {muxData?: MuxData | null},
     courseId: string;
     chapterId: string;
-};
+}
 
 const formSchema = z.object({
     videoUrl: z.string().min(1),

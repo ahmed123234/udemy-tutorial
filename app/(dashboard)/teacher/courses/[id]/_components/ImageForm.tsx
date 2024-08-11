@@ -13,7 +13,7 @@ interface ImageFormProps {
     initialData: Course,
     courseId: string
 }
-;
+
 
 const ImageForm = ({ initialData, courseId }: ImageFormProps ) => {
 

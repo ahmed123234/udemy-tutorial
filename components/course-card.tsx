@@ -15,7 +15,7 @@ interface CourseCardProps {
     price: number;
     progress: number | null;
     category: string;
-};
+}
 
 export const CourseCard = ({ id, title, imageUrl, category, price, progress, chaptersLength }: CourseCardProps) => {
     return(

@@ -24,7 +24,7 @@ interface ComboboxProps {
         value: string
     }[];
     onChange: (value: string) => void;
-};
+}
 
 export function Combobox({ options, onChange } : ComboboxProps) {
   const [open, setOpen] = React.useState(false)
